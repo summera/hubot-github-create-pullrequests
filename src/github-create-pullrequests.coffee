@@ -26,7 +26,7 @@ module.exports = (robot) ->
   github = require('githubot')(robot)
 
   robot.respond /create pr from ([-_\.0-9a-zA-Z]+)\/([-_\.a-zA-z0-9\/]+)\/([-_\.a-zA-z0-9\/]+)(?: into ([-_\.a-zA-z0-9\/]+))?(?: "(.*)")?$/i, (msg) ->
-    return if missingEnv()
+    return if missingEnv(msg)
 
     base = msg.match[4] || 'master'
 
@@ -49,7 +49,7 @@ module.exports = (robot) ->
     github.post "repos/#{msg.match[1]}/#{msg.match[2]}/pulls", data, (pr) ->
       msg.send "Success! Pull request created for #{msg.match[3]}. #{pr.html_url}"
 
-  missingEnv = ->
+  missingEnv = (msg) ->
     unless githubToken?
       msg.send 'HUBOT_GITHUB_TOKEN is missing. Please ensure that it is set. See https://github.com/summera/hubot-github-create-pullrequests for more details about generating one.'
 
