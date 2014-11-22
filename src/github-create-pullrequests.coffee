@@ -40,22 +40,17 @@ module.exports = (robot) ->
     github.handleErrors (response) ->
       switch response.statusCode
         when 404
-          msg.send 'Error: Sorry mate, this is not a valid repo that I have
-            access to.'
+          msg.send 'Error: Sorry mate, this is not a valid repo that I have access to.'
         when 422
-          msg.send "Error: Yo mate, the pull request has already been created
-            or the branch does not exist."
+          msg.send "Error: Yo mate, the pull request has already been created or the branch does not exist."
         else
           msg.send 'Error: Sorry mate, something is wrong with your request.'
 
     github.post "repos/#{msg.match[1]}/#{msg.match[2]}/pulls", data, (pr) ->
-      msg.send "Success! Pull request created for #{msg.match[3]}.
-        #{pr.html_url}"
+      msg.send "Success! Pull request created for #{msg.match[3]}. #{pr.html_url}"
 
   missingEnv = ->
     unless githubToken?
-      msg.send 'HUBOT_GITHUB_TOKEN is missing. Please ensure that it is set.
-        See https://github.com/summera/hubot-github-create-pullrequests for
-        more details about generating one.'
+      msg.send 'HUBOT_GITHUB_TOKEN is missing. Please ensure that it is set. See https://github.com/summera/hubot-github-create-pullrequests for more details about generating one.'
 
     !githubToken?
