@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/summera/hubot-github-create-pullrequests.svg?branch=master)](https://travis-ci.org/summera/hubot-github-create-pullrequests)
+
 # Hubot Create Pull Requests
 
 ## Installation
