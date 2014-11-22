@@ -49,12 +49,13 @@ module.exports = (robot) ->
           msg.send 'Error: Sorry mate, something is wrong with your request.'
 
     github.post "repos/#{msg.match[1]}/#{msg.match[2]}/pulls", data, (pr) ->
-      msg.send "Success! Pull request created for #{msg.match[3]}. #{pr.html_url}"
+      msg.send "Success! Pull request created for #{msg.match[3]}.
+        #{pr.html_url}"
 
   missingEnv = ->
     unless githubToken?
       msg.send 'HUBOT_GITHUB_TOKEN is missing. Please ensure that it is set.
-        See https://github.com/iangreenleaf/githubot for more details about
-        generating one.'
+        See https://github.com/summera/hubot-github-create-pullrequests for
+        more details about generating one.'
 
     !githubToken?
