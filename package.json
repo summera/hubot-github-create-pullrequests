@@ -1,7 +1,7 @@
 {
   "name": "hubot-github-create-pullrequests",
   "description": "Open Github pull requests with Hubot",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "Ari Summer <aribsummer@gmail.com> (https://github.com/summera)",
   "license": "MIT",
   "keywords": [
