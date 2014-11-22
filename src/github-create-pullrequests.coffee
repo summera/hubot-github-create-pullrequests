@@ -55,7 +55,7 @@ module.exports = (robot) ->
   missingEnv = ->
     unless githubToken?
       msg.send 'HUBOT_GITHUB_TOKEN is missing. Please ensure that it is set.
-        See https://github.com/iangreenleaf/githubot for more details about
-        generating one.'
+        See https://github.com/summera/hubot-github-create-pullrequests for
+        more details about generating one.'
 
     !githubToken?
